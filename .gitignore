@@ -1,0 +1,7 @@
+# .gitignore
+.env
+*.log
+*.tmp
+__pycache__/
+*.swp
+node_modules/
