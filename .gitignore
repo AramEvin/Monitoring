@@ -1,7 +1,5 @@
-# .gitignore
 .env
+.env.secret
+grafana-storage/
 *.log
 *.tmp
-__pycache__/
-*.swp
-node_modules/
