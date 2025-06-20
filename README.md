@@ -7,6 +7,4 @@ This stack provides full infrastructure observability with metrics, alerting, an
 - **Prometheus** – Scrapes node metrics and triggers alerts
 - **Node Exporter** – Exposes host-level metrics
 - **Grafana** – Visualizes metrics with dashboards
-- **Alertmanager** – Sends alerts via email
-
-
+- **cAdvisor** for detailed container resource usage monitoring

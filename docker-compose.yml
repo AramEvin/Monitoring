@@ -33,8 +33,31 @@ services:
     container_name: alertmanager
     volumes:
       - ./alertmanager/config.yml:/etc/alertmanager/config.yml
+    environment:
+      - ALERTMANAGER_URL=http://${NODE_SERVER_1}:9093
+      - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID}
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
     ports:
       - "${ALERTMANAGER_PORT}:9093"
+    restart: unless-stopped
+
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    container_name: cadvisor
+    ports:
+      - "${CADVISOR_PORT}:8080"
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    restart: unless-stopped
+
+  node-exporter:
+    image: prom/node-exporter
+    container_name: node-exporter
+    ports:
+      - "${NODE_EXPORTER_PORT}:9100"
     restart: unless-stopped
 
 volumes:

@@ -36,3 +36,12 @@ groups:
         annotations:
           summary: "Low disk space on {{ $labels.instance }}"
           description: "Disk space is less than 15% on root partition."
+
+      - alert: TestTelegramAlert
+        expr: vector(1)
+        for: 10s
+        labels:
+          severity: critical
+        annotations:
+          summary: "Test alert"
+          description: "This is a test alert to Telegram"
