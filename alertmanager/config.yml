@@ -1,0 +1,16 @@
+global:
+  smtp_smarthost: 'smtp.gmail.com:587'
+  smtp_from: 'nijat63242@finfave.com'
+  smtp_auth_username: 'nijat63242@finfave.com'
+  smtp_auth_password: 'SuperSecretPasswordHere'
+
+route:
+  group_by: ['alertname']
+  receiver: 'email-alert'
+  repeat_interval: 1h
+
+receivers:
+  - name: 'email-alert'
+    email_configs:
+      - to: 'nijat63242@finfave.com'
+        send_resolved: true
