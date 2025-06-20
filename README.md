@@ -1,2 +1,12 @@
-# Monitoring
-📊 Prometheus + Grafana Monitoring Stack with Docker A ready-to-use monitoring stack that includes Prometheus, Grafana, and Node Exporter, all running in Docker containers. This setup is ideal for DevOps, DevSecOps, and sysadmins to monitor Linux systems (e.g., Kali Linux, Ubuntu) on a local or networked environment.
+# 🔍 Monitoring Stack: Prometheus, Grafana, Alertmanager
+
+This stack provides full infrastructure observability with metrics, alerting, and dashboards using Docker Compose.
+
+## 🔧 Components
+
+- **Prometheus** – Scrapes node metrics and triggers alerts
+- **Node Exporter** – Exposes host-level metrics
+- **Grafana** – Visualizes metrics with dashboards
+- **Alertmanager** – Sends alerts via email
+
+
