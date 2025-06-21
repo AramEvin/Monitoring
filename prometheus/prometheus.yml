@@ -22,7 +22,11 @@ scrape_configs:
     static_configs:
       - targets: ['192.168.121.25:9100']
 
-  - job_name: 'cadvisor'
+  - job_name: 'cadvisor-server-1'
     static_configs:
       - targets: ['192.168.121.26:8080']
+
+  - job_name: 'cadvisor-server-2'
+    static_configs:
+      - targets: ['192.168.121.25:8080']
 
