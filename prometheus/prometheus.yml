@@ -98,3 +98,11 @@ scrape_configs:
       - target_label: __address__
         replacement: blackbox-exporter:9115
 
+
+  - job_name: 'process_exporter_kali1'
+    static_configs:
+      - targets: ['192.168.121.26:9256']
+
+  - job_name: 'process_exporter_kali2'
+    static_configs:
+      - targets: ['192.168.121.25:9256']

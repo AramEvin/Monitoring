@@ -61,6 +61,23 @@ services:
     restart: unless-stopped
 
 
+  process_exporter:
+    image: ncabatoff/process-exporter
+    container_name: process_exporter
+    volumes:
+      - /proc:/host/proc:ro
+      - ./process-exporter/process-exporter.yml:/config.yml:ro
+    command:
+      - '--procfs'
+      - '/host/proc'
+      - '--config.path'
+      - '/config.yml'
+    ports:
+      - "9256:9256"
+    restart: unless-stopped
+
+
+
   blackbox-exporter:
     image: prom/blackbox-exporter
     container_name: blackbox-exporter
