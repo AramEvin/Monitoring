@@ -60,6 +60,18 @@ services:
       - "${NODE_EXPORTER_PORT}:9100"
     restart: unless-stopped
 
+
+  blackbox-exporter:
+    image: prom/blackbox-exporter
+    container_name: blackbox-exporter
+    ports:
+      - "9115:9115"
+    volumes:
+      - ./blackbox:/config
+    command:
+      - '--config.file=/config/blackbox.yml'
+    restart: unless-stopped
+
 volumes:
   grafana-storage:
   prometheus_data:
