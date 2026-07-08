@@ -1,10 +1,11 @@
+#All IP addresses shown are for testing purposes only and are provided as examples.
 global:
   scrape_interval: 15s
 
 alerting:
   alertmanagers:
     - static_configs:
-        - targets: ['192.168.121.26:9093']
+        - targets: ['192.168.121.26:9093'] #Testing IP
 
 rule_files:
   - "alert.rules.yml"
@@ -12,23 +13,23 @@ rule_files:
 scrape_configs:
   - job_name: 'prometheus'
     static_configs:
-      - targets: ['192.168.121.26:9090']
+      - targets: ['192.168.121.26:9090'] #Testing IP
 
   - job_name: 'node_exporter_kali1'
     static_configs:
-      - targets: ['192.168.121.26:9100']
+      - targets: ['192.168.121.26:9100'] #Testing IP
 
   - job_name: 'node_exporter_kali2'
     static_configs:
-      - targets: ['192.168.121.25:9100']
+      - targets: ['192.168.121.25:9100'] #Testing IP
 
   - job_name: 'cadvisor-server-1'
     static_configs:
-      - targets: ['192.168.121.26:8080']
+      - targets: ['192.168.121.26:8080'] #Testing IP
 
   - job_name: 'cadvisor-server-2'
     static_configs:
-      - targets: ['192.168.121.25:8080']
+      - targets: ['192.168.121.25:8080'] #Testing IP
 
   - job_name: 'blackbox_remote'
     metrics_path: /probe
@@ -44,7 +45,7 @@ scrape_configs:
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: 192.168.121.25:9115
+        replacement: 192.168.121.25:9115 #Testing IP
 
   - job_name: 'blackbox_icmp'
     metrics_path: /probe
@@ -62,7 +63,7 @@ scrape_configs:
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: blackbox-exporter:9115
+        replacement: blackbox-exporter:9115 #Testing IP
 
   - job_name: 'blackbox_tcp'
     metrics_path: /probe
@@ -70,8 +71,8 @@ scrape_configs:
       module: [tcp_connect]
     static_configs:
       - targets:
-          - 192.168.121.26:22
-          - 192.168.121.25:22
+          - 192.168.121.26:22 #Testing IP
+          - 192.168.121.25:22 #Testing IP 
           - google.com:443
     relabel_configs:
       - source_labels: [__address__]
@@ -89,7 +90,7 @@ scrape_configs:
       - targets:
           - http://google.com
           - http://github.com
-          - http://192.168.121.26:9100
+          - http://192.168.121.26:9100 #Testing IP
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
@@ -101,7 +102,7 @@ scrape_configs:
 
   - job_name: 'process_exporter_kali1'
     static_configs:
-      - targets: ['192.168.121.26:9256']
+      - targets: ['192.168.121.26:9256'] #Testing IP
 
   - job_name: 'process_exporter_kali2'
     static_configs:
